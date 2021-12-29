@@ -1,7 +1,8 @@
 'use strict';
 
+const util = require('util');
+
 const RedisSMQ = require('rsmq');
-const Promise = require('bluebird');
 
 class RedisSMQPromise {
 
@@ -10,48 +11,48 @@ class RedisSMQPromise {
     };
 
     get listQueues() {
-        return Promise.promisify(this.rsmq.listQueues);
+        return util.promisify(this.rsmq.listQueues);
     };
 
     get changeMessageVisibility() {
-        return Promise.promisify(this.rsmq.changeMessageVisibility);
+        return util.promisify(this.rsmq.changeMessageVisibility);
     };
 
     get createQueue() {
-        return Promise.promisify(this.rsmq.createQueue);
+        return util.promisify(this.rsmq.createQueue);
     };
 
     get setQueueAttributes() {
-        return Promise.promisify(this.rsmq.setQueueAttributes);
+        return util.promisify(this.rsmq.setQueueAttributes);
     };
     
     get getQueueAttributes() {
-        return Promise.promisify(this.rsmq.getQueueAttributes);
+        return util.promisify(this.rsmq.getQueueAttributes);
     };
 
     get deleteQueue() {
-        return Promise.promisify(this.rsmq.deleteQueue);
+        return util.promisify(this.rsmq.deleteQueue);
     };
 
     get sendMessage() {
-        return Promise.promisify(this.rsmq.sendMessage);
+        return util.promisify(this.rsmq.sendMessage);
     };
 
     get receiveMessage() {
-        return Promise.promisify(this.rsmq.receiveMessage);
+        return util.promisify(this.rsmq.receiveMessage);
     };
 
     get deleteMessage() {
-        return Promise.promisify(this.rsmq.deleteMessage);
+        return util.promisify(this.rsmq.deleteMessage);
     };
     
     get popMessage() {
-        return Promise.promisify(this.rsmq.popMessage);
+        return util.promisify(this.rsmq.popMessage);
     };
 
     get quit() {
-        return Promise.promisify(this.rsmq.quit);
-    }; 
+        return util.promisify(this.rsmq.quit);
+    };
 }
 
 module.exports = RedisSMQPromise;
